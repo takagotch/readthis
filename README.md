@@ -44,6 +44,13 @@ Readthis::Cache.new(marshal: Oj)
 Readthis.fault_tolerant = true
 
 Rails.cache.pool.with { |client| client.expire('foo-key', 60) }
+
+Reils.application.config.session_store :cache_store
+
+Rails.application.config.session_store :cache_store,
+  cache: Readthis::Cache.new,
+  expire_after: 2.weeks.to_i
+
 ```
 
 ```
