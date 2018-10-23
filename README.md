@@ -36,6 +36,12 @@ config.cache_store = :readthis_store, {
 
 Readthis::Cache.new(marchal: Readthis::Passthrough)
 
+Readthis.serializers << obj
+
+Readthis.serializers.freeze!
+Readthis::Cache.new(marshal: Oj)
+
+Readthis.fault_tolerant = true
 
 ```
 
