@@ -27,6 +27,16 @@ REDIS_URL=redis://localhost:6379/2
 Readthis::Cache.new(expires_in: 1.week)
 Readthis::Cache.new(expires_in: 1.week.to_i)
 
+Readthis::Cache.new(refresh: true)
+
+config.cache_store = :readthis_store, {
+  compress: true,
+  compression_threshold: 2.kilobytes
+}
+
+Readthis::Cache.new(marchal: Readthis::Passthrough)
+
+
 ```
 
 ```
