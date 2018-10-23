@@ -43,6 +43,7 @@ Readthis::Cache.new(marshal: Oj)
 
 Readthis.fault_tolerant = true
 
+Rails.cache.pool.with { |client| client.expire('foo-key', 60) }
 ```
 
 ```
